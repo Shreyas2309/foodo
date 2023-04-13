@@ -1,0 +1,72 @@
+<header class="primary-header container">
+  <a href="/"><img src="" class="logo" alt="company Logo" /></a>
+  <nav class="primary-navigation">
+    <ul role="list" class="nav-list">
+      <li><a href="/">Home</a></li>
+      <li><a href="#">Popular</a></li>
+      <li><a href="/menu">Menu</a></li>
+    </ul>
+  </nav>
+  <div class="icons">
+    <a href="/menu/search" class="icon-hover"><i class="fa-solid fa-magnifying-glass icon"></i></a>
+    <div class="profile">
+      <div id="profileBtn" class="icon-hover"
+        ><i class="fa-solid fa-user icon"></i
+      ></div>
+      <div class="profile__menu">
+        <ul role="list" class="menu__list">
+          <li><a href="#"><%= user.name %></a></li>
+          <li><a href="/orders">Orders</a></li>
+          <li><a href="/user/logout">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+    <a href="/cart" class="cart icon-hover"
+      ><i class="fa-solid fa-cart-shopping icon"></i>
+      <% if(cart) {%>
+        <span class="cart__count" id="cartCount"> <%= cart.items.length %> </span>
+      <% }else{ %>
+        <span class="cart__count" id="cartCount">0</span>
+        <% } %>
+    </a>
+  </div>
+</header>
+<main>
+  <section class="menu container">
+    <h2 class="section__title">Menu</h2>
+    <div class="menu__grid">
+      <% items.forEach((item)=>{ %>
+      <div class="menu__item menu__item-shadow">
+        <div class="item__header">
+          <img
+            src="<%= item.image %>"
+            class="item__image"
+            alt=" <%= item.name %> "
+          />
+        </div>
+        <div class="item__body">
+          <h4 class="item__name"><%= item.name %></h4>
+          <div class="info__add__wrapper">
+            <div class="info__wrapper">
+              <p class="item__price">&#8377;<%= item.price %></p>
+              <p class="item__unit">Per <% if( item.unit=="Plate" || item.unit=="Piece"|| item.unit=="Glass" || item.unit=="Cup" || item.unit=="Pound" ) {%> 
+                  <%= item.unit %>
+                <% } else{%>
+                  <%= item.serve %> <%= item.unit %>
+                  <% } %>
+              </p>
+            </div>
+            <div class="add__wrapper">
+              <input type="hidden" id="itemId" value="<%= item.itemId %>"> 
+              <button class="item__add">+</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+  </section>
+</main>
+
+<!-- Scrips -->
+<script src="/js/menu.js"></script>
