@@ -1,5 +1,5 @@
 {
-  "name": "eateasy",
+  "name": "foodo",
   "version": "1.0.0",
   "description": "Food Ordering Website",
   "main": "server.js",
@@ -8,12 +8,8 @@
     "dev": "nodemon server.js",
     "menu": "node ./utils/itemImport.js"
   },
-  "author": "Chirag Verma",
+  "author": "Shreyas Priyanka",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chiragverma11/EatEasy_Food_Ordering_Website/issues"
-  },
-  "homepage": "https://github.com/chiragverma11/EatEasy_Food_Ordering_Website#readme",
   "devDependencies": {
     "csvtojson": "^2.0.10",
     "nodemon": "^2.0.21"
